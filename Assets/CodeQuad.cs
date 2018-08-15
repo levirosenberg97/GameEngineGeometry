@@ -12,6 +12,10 @@ public class CodeQuad : MonoBehaviour
     public float scrollSpeedVerticle;
     public float scrollSpeedHorizontal;
 
+    public float secondaryScrollVerticle;
+    public float secondaryScrollHorizontal;
+
+
     Material texture;
     void Start()
     {
@@ -91,7 +95,11 @@ public class CodeQuad : MonoBehaviour
         float verticleOffset = Time.time * scrollSpeedVerticle;
         float horizontalOffset = Time.time * scrollSpeedHorizontal;
 
+        float secondaryVertOffset = Time.time * secondaryScrollVerticle;
+        float secondaryHorzOffset = Time.time * secondaryScrollHorizontal;
+
 
         texture.mainTextureOffset = new Vector2(horizontalOffset, -verticleOffset);
+        //texture.GetTextureOffset("AreaTex") = new Vector2(secondaryHorzOffset, secondaryVertOffset);
     }
 }
