@@ -10,21 +10,21 @@ public class ColorSwitch : MonoBehaviour
 	
     public void ChangeToRed()
     {
+        rippleMat.SetColor("_SecondaryColor", Color.red);
         smokeMat.SetColor("_TintColor", Color.red);
         fireMat.SetColor("_TintColor", Color.red);
-        rippleMat.color = Color.red;
     }
 
     public void ChangeToBlue()
     {
-        rippleMat.color = Color.cyan;
+        rippleMat.SetColor("_SecondaryColor", Color.cyan);
         smokeMat.SetColor("_TintColor", Color.cyan);
         fireMat.SetColor("_TintColor", Color.cyan);
     }
 
     public void ChangeToGreen()
     {
-        rippleMat.color = Color.green;
+        rippleMat.SetColor("_SecondaryColor", Color.green);
         smokeMat.SetColor("_TintColor", Color.green);
         fireMat.SetColor("_TintColor", Color.green);
     }

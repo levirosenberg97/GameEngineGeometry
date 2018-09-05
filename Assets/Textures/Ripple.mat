@@ -21,7 +21,7 @@ Material:
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 33bdfe281e759f842ba86e742eb80cbb, type: 3}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: -0.8, y: -0.9}
+        m_Offset: {x: -0.0405, y: -0.177}
     - _SecondaryTex:
         m_Texture: {fileID: 2800000, guid: 58d2ed77d5150e444a836fe9a6618d89, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -36,9 +36,9 @@ Material:
     - _Metallic: 0
     - _RippleDistance: 0
     - _RippleWidth: 0.1
-    - _Transition: 0.51
+    - _Transition: 0.049109556
     m_Colors:
     - _Color: {r: 0, g: 1, b: 1, a: 1}
-    - _PrimaryColor: {r: 1, g: 1, b: 1, a: 0}
+    - _PrimaryColor: {r: 1, g: 1, b: 1, a: 1}
     - _RippleOrigin: {r: 0, g: 0, b: 0, a: 0}
     - _SecondaryColor: {r: 0, g: 0, b: 0, a: 1}

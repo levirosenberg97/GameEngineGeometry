@@ -6,8 +6,7 @@
 		_SecondaryColor("Secondary Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_SecondaryTex("2nd Texture", 2D) = "white" {}
-		//_MainTex_ST("Main Texture ST", Float) = 1
-		_Transition ("Transition",Range(0,1)) = 0.5
+		_Transition ("Transition",Range(0,10)) = 0.5
 		_Glossiness("Smoothness", Range(0,1)) = 0.5
 		_Metallic("Metallic", Range(0,1)) = 0.0
 		_RippleOrigin("Ripple Origin", Vector) = (0,0,0,0)
@@ -15,8 +14,6 @@
 		_RippleWidth("Ripple Width", Float) = 0.1
 	}
 
-
-		// Levi is a really awesome dude :) 
 
 	SubShader 
 		{
@@ -67,11 +64,11 @@
 
 
 				fixed4 mainMaskStrength = tex2D(_MainTex, IN.uv_MainTex).r;
-				mainMaskStrength = mainMaskStrength * .98 + .01;
+				mainMaskStrength = mainMaskStrength * 9.8 + 0.1;
 				float mainMaskSelection = (_Transition > mainMaskStrength);
 
-				fixed4 secondMaskStrength = tex2D(_SecondaryTex, IN.uv_SecondaryTex).r;
-				secondMaskStrength = secondMaskStrength * .98 + .01;
+				fixed4 secondMaskStrength = tex2D(_SecondaryTex, IN.uv_MainTex ).r;
+				secondMaskStrength = secondMaskStrength * 9.8 + 0.1;
 				float secondMaskSelection = (_Transition > secondMaskStrength);
 				 
 				fixed4 c = secondMaskSelection;
@@ -87,7 +84,7 @@
 				// Metallic and smoothness come from slider variables
 				o.Metallic = _Metallic;
 				o.Smoothness = _Glossiness;
-				o.Alpha = c.a;
+				o.Alpha = 1;
 				//TRANSFORM_TEX(o.)
 			}
 			ENDCG
