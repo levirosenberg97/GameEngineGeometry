@@ -33,11 +33,11 @@ public class ButtonManager : MonoBehaviour
     {
         if(bringUp == true)
         {
-            UIElement.position = Vector3.Lerp(UIElement.position, new Vector3(UIElement.position.x, Screen.height / 2), Time.deltaTime * 5);
+            UIElement.position = Vector3.Lerp(UIElement.position, new Vector3(UIElement.position.x, Screen.height* 3 / 4), Time.deltaTime * 5);
         }
         else
         {
-            UIElement.position = Vector3.Lerp(UIElement.position, new Vector3(UIElement.position.x, Screen.height / 25), Time.deltaTime * 5);
+            UIElement.position = Vector3.Lerp(UIElement.position, new Vector3(UIElement.position.x, 0), Time.deltaTime * 5);
         }
     }
 

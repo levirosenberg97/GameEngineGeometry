@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RippleRepeater : MonoBehaviour
 {
+
+    public GameObject plane;
+
     public float maximumValue;
     public float maxWidth;
     public float speed;
@@ -19,18 +22,24 @@ public class RippleRepeater : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+
         if (collision.collider.tag == "Ball")
         {
             collided = true;
             ResetValues();
             collisionPoint = collision.contacts[0].point;
+            Vector2 newOffset = plane.transform.InverseTransformPoint(collisionPoint);
+            newOffset.Normalize();
             mat.SetVector("_RippleOrigin", collisionPoint);
+            
+            //mat.SetFloat("_RippleWidth", 1);
 
+            mat.mainTextureOffset = newOffset;
             fire.transform.position = collisionPoint;
-            fire.SetActive(true);
+            //fire.SetActive(true);
 
             smoke.transform.position = collisionPoint;
-            smoke.SetActive(true);
+            //smoke.SetActive(true);
         }
     }
 
@@ -52,13 +61,13 @@ public class RippleRepeater : MonoBehaviour
         smokeShape.radius = 0;
 
         distance = 0f;
-        width = 1;
+        width = 0f;
         mat.SetFloat("_RippleDistance", 0);
         mat.SetVector("_RippleOrigin", Vector4.zero);
-        mat.SetFloat("_RippleWidth", 1);
+        mat.SetFloat("_RippleWidth", .1f);
     }
 
-    float width = 1;
+    float width;
 
     private void Update()
     {
