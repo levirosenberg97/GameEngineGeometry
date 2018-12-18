@@ -9,6 +9,7 @@ public class RippleRepeater : MonoBehaviour
     public float planeHeight;
 
     public float maximumValue;
+    float fadeValue;
     public float maxWidth;
     public float speed;
 
